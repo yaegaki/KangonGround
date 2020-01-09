@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kangon Ground</title>
+    <style>
+        html {
+            touch-action: manipulation;
+            -webkit-touch-action: manipulation
+        }
+
+        body {
+            background: orange;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        #canvas {
+            width: 600px;
+            height: 500px;
+            border: 1px solid black;
+        }
+
+        @media all and (max-width: 600px) {
+            #canvas {
+                transform: scale(0.55);
+                transform-origin: 50% 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="600" height="500"></canvas>
+    <script src="main.js"></script>
+</body>
+</html>
