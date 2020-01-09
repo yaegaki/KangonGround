@@ -206,12 +206,14 @@
             tweetContainerElem.classList.add('result');
             tweetElem.innerHTML = '';
             twttr.widgets.createShareButton(
-                '',
+                'https://yaegaki.github.io/KangonGround/',
                 tweetElem,
                 {
-                    text: `Score:${score}`,
+                    text: `結果はスコア${score}でした`,
+                    hashtags: 'KangonGround',
                 }
             );
+
         }
 
         const center = width / 2;
