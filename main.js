@@ -2,6 +2,9 @@
     const width = 600;
     const height = 500;
 
+    const tweetContainerElem = document.getElementById('tweet-container');
+    const tweetElem = document.getElementById('tweet');
+
     // highDPI対応
     const canvas = document.getElementById('canvas');
     canvas.width = width * window.devicePixelRatio;
@@ -115,6 +118,9 @@
             thornX = thornSpawnX;
             thornDir = Math.floor(Math.random() * 2) === 0 ? 1 : 2;
             thornCount = 1;
+
+            tweetContainerElem.classList.remove('result');
+            tweetElem.innerHTML = '';
         }
 
         ctx.fillStyle = 'red';
@@ -152,7 +158,7 @@
 
         // とげを動かす
         thornX -= (thornSpeed + Math.floor(thornCount / 5) * thronSpeedAcc) * deltaTime;
-        console.log((thornSpeed + Math.floor(thornCount / 5) * thronSpeedAcc));
+        // console.log((thornSpeed + Math.floor(thornCount / 5) * thronSpeedAcc));
 
         const thornY = thornDir === 1 ? areaTop + thornHeight : areaBottom - thornHeight;
         const h = thornDir === 1 ? -thornHeight : thornHeight;
@@ -196,6 +202,16 @@
                 highscore.score = score;
                 localStorage.setItem('score', JSON.stringify(highscore));
             }
+
+            tweetContainerElem.classList.add('result');
+            tweetElem.innerHTML = '';
+            twttr.widgets.createShareButton(
+                '',
+                tweetElem,
+                {
+                    text: `Score:${score}`,
+                }
+            );
         }
 
         const center = width / 2;

@@ -26,6 +26,18 @@
             border: 1px solid black;
         }
 
+        #tweet-container {
+            visibility: hidden;
+            margin: 10px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        #tweet-container.result {
+            visibility: visible;
+        }
+
         @media all and (max-width: 600px) {
             #canvas {
                 transform: scale(0.55);
@@ -35,7 +47,11 @@
     </style>
 </head>
 <body>
+    <div id="tweet-container">
+        結果をツイート<span id="tweet"></span>
+    </div>
     <canvas id="canvas" width="600" height="500"></canvas>
+    <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script src="main.js"></script>
 </body>
 </html>
